@@ -11,7 +11,9 @@ fn main() {
     );
     let lact = get_start(&data);
     // let a = data[0][888];
-    println!("{:?}, {}, {}", lact, data[lact.0][lact.1], a);
+    println!("{:?}, {}",
+        lact,
+        data[lact.0][lact.1]);
 }
 
 fn get_start(data: &Vec<Vec<char>>) -> (usize, usize) {
@@ -64,4 +66,14 @@ fn a(list: &mut Iter<i32>) {
     let val = list.next().unwrap();
     println!("unwrapval: {}", val);
     a(list);
+}
+
+#[test]
+fn get_start_test() {
+    let d = vec!(
+        vec!('#','#', '.','S')
+    );
+    let posi = get_start(&d);
+
+    assert_eq!((0,3),posi);
 }
