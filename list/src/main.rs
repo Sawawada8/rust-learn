@@ -1,3 +1,5 @@
+mod str;
+mod iter;
 
 #[derive(Debug)]
 enum List {
@@ -21,6 +23,10 @@ fn main() {
 
     rec(list);
 
+    println!("---------------");
+    // str::run();
+    println!("---------------");
+    iter::run();
     println!("---------------");
 }
 
