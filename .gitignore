@@ -2,4 +2,5 @@
 !.gitignore
 !/network
 !/list
+!/actix-web-demo
 target
