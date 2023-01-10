@@ -40,6 +40,50 @@ enum List {
     Nil,
 }
 
+fn rec_main() {
+    let first = 3;
+    let l = rec_s(first);
+}
+
+fn rec_s(first: i32) -> List {
+    List::Node(first, Box::new(List::Nil))
+}
+
+fn rec_list(l: List, i: i32) -> List {
+    List::Node(i, Box::new(l))
+}
+#[test]
+fn rec_list_test() {
+    let fir = 3;
+    let sec = 33;
+    let l = rec_s(fir);
+    let ll = rec_list(l, sec);
+
+    let expected = List::Node(33, Box::new(
+        List::Node(3, Box::new(
+            List::Nil))));
+
+    // ここ値入れて初期化すれば通った
+    // 型定義のみだとだめだった。。
+    let mut inner: List = List::Nil;
+    let a = match expected {
+        List::Node(i, l) => {
+            inner = *l;
+            i
+        },
+        List::Nil => { 0 }
+    };
+    assert_eq!(a, 33);
+
+    let b = match inner {
+        List::Node(i, _l) => {
+            i
+        },
+        List::Nil => { 0 }
+    };
+    assert_eq!(b, 3);
+}
+
 fn rec() {
     let list = vec!(1,3,4,5,2,9);
     let mut list = list.iter();
