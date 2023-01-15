@@ -4,4 +4,7 @@
 !/list
 !/actix-web-demo
 !/corder
+!/struct-testable
 target
+
+Cargo.lock
