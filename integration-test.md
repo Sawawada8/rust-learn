@@ -1,6 +1,6 @@
 # 統合テストについて
 
-project が liblary で lib.rs を持つときは、下記の記述で
+project が liblary で lib.rs を持つときは、下記の記述で library のモジュールを呼び出し、テストを記述することができる
 ```rs
 extern crate vcr_cassettes_server;
 ```
